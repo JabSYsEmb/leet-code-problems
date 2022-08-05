@@ -22,7 +22,7 @@ fn two_sum(
         }
     }
 
-    return vec![];
+    unreachable!();
 }
 
 // Optimal solution ... using HashMap
@@ -54,7 +54,7 @@ fn two_sum_optimal(
         hash_map.insert(nums[index], index as i32);
     }
 
-    return vec![];
+    unreachable!();
 }
 
 fn main() {
