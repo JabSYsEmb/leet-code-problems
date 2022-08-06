@@ -1,1 +1,0 @@
-/Users/jabbar/Projects/github/my-repo/leet-code-problems/data-structure/rust/merge_sort_array/target/debug/merge_sort_array: /Users/jabbar/Projects/github/my-repo/leet-code-problems/data-structure/rust/merge_sort_array/src/main.rs
