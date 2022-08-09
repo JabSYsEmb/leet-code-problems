@@ -8,47 +8,29 @@ impl Solution {
         nums2: &mut Vec<i32>,
         n: i32,
     ) {
-        if nums1.len() + nums2.len() < (m + n) as usize {
-            panic!();
-        }
-
-        if m == 0 {
-            nums1.drain(0..);
-            nums2.drain(n as usize..);
-            nums1.append(nums2);
-            return;
-        }
-
-        if n == 0 {
-            nums1.drain(m as usize..);
-            return;
-        }
-
-        nums1.drain(m as usize..);
-        nums2.drain(n as usize..);
-
-        if m + n == 1 {
-            nums1.drain(1..);
-            if m == 0 {
-                nums1[0] = nums2[0];
+        let mut index_nums_1 = m - 1;
+        let mut index_nums_2 = n - 1;
+        for i in ((0..n + m).rev()) {
+            if index_nums_2 == -1 {
+                break;
             }
-            return;
-        }
-        if nums1[m as usize - 1] < nums2[0] {
-            nums1.append(nums2);
-            return;
-        }
-        if nums1[0] > nums2[(n) as usize - 1] {
-            for idx in 0..(n) as usize {
-                nums1.insert(idx, nums2[idx]);
+            if (index_nums_1 != -1
+                && nums1[index_nums_1 as usize] > nums2[index_nums_2 as usize])
+            {
+                nums1[i as usize] = nums1[index_nums_1 as usize];
+                index_nums_1 -= 1;
+                continue;
+            } else {
+                nums1[i as usize] = nums2[index_nums_2 as usize];
+                index_nums_2 -= 1;
+                continue;
             }
-            return;
         }
     }
 }
 
 fn main() {
-    let mut example_4_nums1: Vec<i32> = vec![4, 5, 6];
+    let mut example_4_nums1: Vec<i32> = vec![4, 5, 6, 0, 2];
     let mut example_4_nums2: Vec<i32> = vec![3, 5, 7, 40];
     Solution::merge(&mut example_4_nums1, 2, &mut example_4_nums2, 3);
     println!("Hello, world!");
