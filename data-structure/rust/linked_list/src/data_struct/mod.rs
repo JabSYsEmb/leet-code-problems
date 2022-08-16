@@ -1,4 +1,3 @@
-
 #[derive(Debug)]
 pub struct Node {
     data: Option<u32>,
@@ -43,4 +42,3 @@ impl Node {
         }
     }
 }
-    
