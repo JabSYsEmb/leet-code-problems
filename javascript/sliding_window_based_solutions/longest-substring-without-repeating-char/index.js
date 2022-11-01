@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const length_of_longest_substring = (str) => {
 	if (str.length < 2) return str.length;
 
